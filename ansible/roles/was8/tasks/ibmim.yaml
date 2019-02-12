@@ -1,0 +1,33 @@
+--- 
+- name: "Create Temp directory"
+  file: 
+    path: "{{ item }}"
+    state: directory
+  with_items: 
+    - /DevOps_Do_Not_Delete/IM
+    - /DevOps_Do_Not_Delete/WAS8.5
+    - /DevOps_Do_Not_Delete/SDK
+    - /DevOps_Do_Not_Delete/FP
+    - /tmp/im
+
+- name: "Download local copy of installer"
+  get_url: 
+    dest: "{{ tmp_location }}"
+    url: "{{download_IIM_url}}"
+  
+- name: "Extract archive"
+  unarchive: 
+    src: "{{tmp_location}}{{zip}}"
+    dest: "{{ Extract_IM_location }}"
+    copy: no
+
+- name: "Run slient install to {{installationDirectory_IIM}}"
+  shell: "{{imcl}} install com.ibm.cic.agent -repositories {{Extract_IM_location}}/repository.config -installationDirectory {{installationDirectory_IIM}} -acceptLicense -log {{log_file}}"
+  args: 
+    creates: /opt/tools/IBM/InstallationManager/eclipse/tools/imcl
+  
+- name: "remove IIM package"
+  file: "path=\"{{tmp_location}}\" state=absent"
+
+- name: "Clean up the unarchived IIM Dir"
+  file: "path=\"{{Extract_IM_location}}\" state=absent"

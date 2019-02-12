@@ -1,0 +1,2 @@
+---
+- import_playbook: was8.yml 

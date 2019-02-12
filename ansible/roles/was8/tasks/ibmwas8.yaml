@@ -1,0 +1,34 @@
+---
+- name: "Download local copy of was installer."
+  get_url:
+    url: "{{ download_WAS_url }}{{ item }}"
+    dest: "{{Extract_WAS_location}}"
+  with_items:
+    - WAS_V8.5.5_1_OF_3.zip
+    - WAS_V8.5.5_2_OF_3.zip
+    - WAS_V8.5.5_3_OF_3.zip
+
+- name: "Extract was8 archive"
+  unarchive: 
+    dest: "{{ Extract_WAS_location }}"
+    src: "{{ Extract_WAS_location }}{{ item }}"
+    copy: no
+  with_items: 
+    - WAS_V8.5.5_1_OF_3.zip
+    - WAS_V8.5.5_2_OF_3.zip
+    - WAS_V8.5.5_3_OF_3.zip
+
+- name: "Run slient install into {{installationDirectory}}"
+  command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5000.20130514_1044 -repositories {{ Extract_WAS_location }} -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
+  args: 
+    creates: /opt/tools/IBM/WebSphere/AppServer/bin/versionInfo.sh
+  
+- name: "Remove was8 packages"
+  file: "path=\"{{Extract_WAS_location}}{{item}}\" state=absent"
+  with_items: 
+    - WAS_V8.5.5_1_OF_3.zip
+    - WAS_V8.5.5_2_OF_3.zip
+    - WAS_V8.5.5_3_OF_3.zip
+
+- name: "Clean up the unarchived WAS Dir"
+  file: "path=\"{{Extract_WAS_location}}\" state=absent"

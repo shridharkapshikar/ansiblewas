@@ -1,0 +1,33 @@
+---
+- name: "AppSrv01 profile creation"
+  command: /opt/tools/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -templatePath  /opt/tools/IBM/WebSphere/AppServer/profileTemplates/default -profileName AppSrv01 -ProfilePath  /opt/tools/IBM/WebSphere/AppServer/profiles/AppSrv01
+  args:
+    chdir: "{{installationDirectory}}"
+    creates: '{{installationDirectory}}/profiles/AppSrv01'
+  ignore_errors: yes  
+
+- name: "AppSrv02 profile creation"
+  command: /opt/tools/IBM/WebSphere/AppServer/bin/manageprofiles.sh -create -templatePath  /opt/tools/IBM/WebSphere/AppServer/profileTemplates/default -profileName AppSrv02 -ProfilePath  /opt/tools/IBM/WebSphere/AppServer/profiles/AppSrv02
+  args:
+    chdir: "{{installationDirectory}}"
+    creates: '{{installationDirectory}}/profiles/AppSrv02'
+  ignore_errors: yes
+
+- name: "Test if 1st instnace is already running"
+  shell: ps -ef |grep -i AppSrv01
+  changed_when: false
+  register: service_server1_status
+
+- name: "WAS console service for 1st instance"
+  command: /opt/tools/IBM/WebSphere/AppServer/profiles/AppSrv01/bin/startServer.sh server1
+  when: service_server1_status.rc == 0
+  ignore_errors: yes
+
+- name: "Test if 2nd instance is already running"
+  shell: ps -ef |grep -i AppSrv02
+  changed_when: false
+  register: service_server2_status
+
+- name: "WAS console service for 2nd instance"
+  command: /opt/tools/IBM/WebSphere/AppServer/profiles/AppSrv02/bin/startServer.sh server1
+  when: service_server2_status.rc == 0

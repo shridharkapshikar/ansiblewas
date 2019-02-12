@@ -1,0 +1,32 @@
+---
+- name: "Download local copy of IBM SDK8 installer"
+  get_url:
+    url: "{{ download_JAVASDK_url }}{{ item }}"
+    dest: "{{ Extract_JAVASDK_location }}"
+  with_items:
+    - 8.0.3.20-WS-IBMWASJAVA-part1.zip
+    - 8.0.3.20-WS-IBMWASJAVA-part2.zip
+
+
+- name: "Extract SDK archive"
+  unarchive:
+    src: "{{ Extract_JAVASDK_location }}{{ item }}"
+    dest: "{{ Extract_JAVASDK_location }}"
+    copy: no
+  with_items:
+    - 8.0.3.20-WS-IBMWASJAVA-part1.zip
+    - 8.0.3.20-WS-IBMWASJAVA-part2.zip
+
+- name: "Run silent install to {{installationDirectory}}"
+  command: '{{imcl}} install com.ibm.websphere.IBMJAVA.v80_8.0.3020.20161124_1304  -repositories "{{ Extract_JAVASDK_location }}"  -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
+  register: installSDK
+  changed_when: installSDK.rc != 0  
+
+- name: "Remove SDK packages after install"
+  file: "path=\"{{Extract_JAVASDK_location}}{{item}}\" state=absent"
+  with_items:
+    - 8.0.3.20-WS-IBMWASJAVA-part1.zip
+    - 8.0.3.20-WS-IBMWASJAVA-part2.zip
+
+- name: "Clean up the unarchived SDK Dir"
+  file: "path=\"{{Extract_JAVASDK_location}}\" state=absent"
