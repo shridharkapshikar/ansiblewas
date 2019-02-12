@@ -24,13 +24,13 @@ pipeline {
            // expression { return DELIVER ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/ }   
               
            //}
-	 input {
-                message "Should we continue?"
-                ok "Yes, we should."
+	// input {
+               // message "Should we continue?"
+                //ok "Yes, we should."
                 //submitter "rauttdee"
                 //parameters {
                 //    choice(name: 'CHOICE', choices: ['Add_new_user', 'Remove_user', 'Grant_sudo_Access', 'Revoke_sudo_Access', 'Add_new_group', 'Remove_Group', 'Grant_Sudo_to_group', 'Generate_ssh_keys', 'Copy_pub_key', 'Changepassword', 'Createfile'], description: 'Select Task from Dropdown')                }
-          }
+         // }
             steps {
                 withEnv(["ANSIBLE_HOST_KEY_CHECKING=False"]) {
                 ansiblePlaybook(
