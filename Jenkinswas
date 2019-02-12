@@ -37,7 +37,7 @@ pipeline {
                     playbook: 'ansible/site.yml',
                     inventory: 'ansible/inventory',
                     credentialsId: 'devtest',
-                    tags: "${CHOICE}",
+                   // tags: "${CHOICE}",
 					extras: '-vvv')
 			   }
             }
