@@ -3,7 +3,7 @@ Extract_FP_location: /DevOps_Do_Not_Delete/FP/
 Extract_IM_location: /DevOps_Do_Not_Delete/IM/
 Extract_JAVASDK_location: /DevOps_Do_Not_Delete/SDK/
 Extract_WAS_location: /DevOps_Do_Not_Delete/WAS8.5/
-download_FP_url: https://maven.etb.tieto.com:443/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS8.5.5FP13
+download_FP_url: https://maven.etb.tieto.com:443/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS8.5.5FP13/
 download_IIM_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/IM/{{ zip }}
 download_JAVASDK_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/SDK/8/
 download_WAS_url: https://maven.etb.tieto.com/artifactory/list/fs-pcm-misc/IBM/AppServer/WebSphere/WAS8.5/
