@@ -14,3 +14,8 @@ installationDirectory_IIM: /opt/tools/IBM/InstallationManager
 log_file: /tmp/IIM_install.log
 tmp_location: /tmp/im/
 zip: Install_Mgr_v1.6.2_Lnx_WASv8.5.5.zip
+---
+# defaults versions for WAS installation
+WAS-FP013: ["8.5.5-WS-WAS-FP013-part1.zip","8.5.5-WS-WAS-FP013-part2.zip","8.5.5-WS-WAS-FP013-part3.zip"]
+IBMWASJAVA: ["8.0.3.20-WS-IBMWASJAVA-part1.zip","8.0.3.20-WS-IBMWASJAVA-part2.zip"]
+WAS85: ["WAS_V8.5.5_1_OF_3.zip","WAS_V8.5.5_2_OF_3.zip","WAS_V8.5.5_3_OF_3.zip"]
