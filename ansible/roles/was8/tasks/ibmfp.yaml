@@ -4,9 +4,9 @@
     url: "{{ download_FP_url }}{{ item }}"
     dest: "{{ Extract_FP_location }}"
   with_items:
-    - 8.5.5-WS-WAS-FP012-part1.zip
-    - 8.5.5-WS-WAS-FP012-part2.zip
-    - 8.5.5-WS-WAS-FP012-part3.zip
+    - 8.5.5-WS-WAS-FP013-part1.zip
+    - 8.5.5-WS-WAS-FP013-part2.zip
+    - 8.5.5-WS-WAS-FP013-part3.zip
 
 - name: "Extract fixpack archive"
   unarchive:
@@ -14,9 +14,9 @@
     dest: "{{ Extract_FP_location }}"
     copy: no
   with_items:
-    - 8.5.5-WS-WAS-FP012-part1.zip
-    - 8.5.5-WS-WAS-FP012-part2.zip
-    - 8.5.5-WS-WAS-FP012-part3.zip
+    - 8.5.5-WS-WAS-FP013-part1.zip
+    - 8.5.5-WS-WAS-FP013-part2.zip
+    - 8.5.5-WS-WAS-FP013-part3.zip
 
 - name: "Run slient install on {{installationDirectory}}"
   command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5012.20170627_1018 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
@@ -24,9 +24,9 @@
 - name: "Remove fixPacks packages"
   file: "path=\"{{Extract_FP_location}}{{item}}\" state=absent"
   with_items:
-    - 8.5.5-WS-WAS-FP012-part1.zip
-    - 8.5.5-WS-WAS-FP012-part2.zip
-    - 8.5.5-WS-WAS-FP012-part3.zip
+    - 8.5.5-WS-WAS-FP013-part1.zip
+    - 8.5.5-WS-WAS-FP013-part2.zip
+    - 8.5.5-WS-WAS-FP013-part3.zip
 
 - name: "Clean up the unarchived FP Dir"
   file: "path=\"{{Extract_FP_location}}\" state=absent"
