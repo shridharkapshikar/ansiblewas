@@ -1,6 +1,3 @@
 ---
-- include: ibmim.yaml
-- include: ibmwas8.yaml
-- include: ibmfp.yaml
-- include: ibmsdk.yaml
+- include: download_and_extract_software.yaml
 - include: ibmpostinstall.yaml
