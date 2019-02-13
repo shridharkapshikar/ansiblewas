@@ -4,7 +4,7 @@
     url: "{{ download_WAS_url }}{{ item }}"
     dest: "{{Extract_WAS_location}}"
   with_items:
-    - "{{ WAS_V8.5.5_1 }}"
+    - "{{ WAS-V8.5.5-1 }}"
 
 - name: "Extract was8 archive"
   unarchive: 
@@ -12,7 +12,7 @@
     src: "{{ Extract_WAS_location }}{{ item }}"
     copy: no
   with_items: 
-    - "{{ WAS_V8.5.5_1 }}"
+    - "{{ WAS-V8.5.5-1 }}"
 
 - name: "Run slient install into {{installationDirectory}}"
   command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5000.20130514_1044 -repositories {{ Extract_WAS_location }} -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
@@ -22,6 +22,6 @@
 - name: "Remove was8 packages"
   file: "path=\"{{Extract_WAS_location}}{{item}}\" state=absent"
   with_items: 
-    - "{{ WAS_V8.5.5_1 }}"
+    - "{{ WAS-V8.5.5-1 }}"
 - name: "Clean up the unarchived WAS Dir"
   file: "path=\"{{Extract_WAS_location}}\" state=absent"
