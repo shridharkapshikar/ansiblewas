@@ -3,18 +3,18 @@ Extract_FP_location: /DevOps_Do_Not_Delete/FP/
 Extract_IM_location: /DevOps_Do_Not_Delete/IM/
 Extract_JAVASDK_location: /DevOps_Do_Not_Delete/SDK/
 Extract_WAS_location: /DevOps_Do_Not_Delete/WAS8.5/
-download_FP_url: https://maven.etb.tieto.com:443/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS8.5.5FP13/
-download_IIM_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/IM/{{ zip }}
-download_JAVASDK_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/SDK/8/
-download_WAS_url: https://maven.etb.tieto.com/artifactory/list/fs-pcm-misc/IBM/AppServer/WebSphere/WAS8.5/
+download_FP_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS9.0/FP9/
+download_IIM_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS9.0/IM/{{ zip }}
+download_JAVASDK_url: https://maven.etb.tieto.com/artifactory/fs-pcm-misc/IBM/AppServer/WebSphere/WAS9.0/SDK/
+download_WAS_url: https://maven.etb.tieto.com/artifactory/list/fs-pcm-misc/IBM/AppServer/WebSphere/WAS9.0/WAS/
 imcl: /DevOps_Do_Not_Delete/IM/tools/imcl
 imcl_path: /opt/tools/IBM/InstallationManager/eclipse/tools/imcl
 installationDirectory: /opt/tools/IBM/WebSphere/AppServer
 installationDirectory_IIM: /opt/tools/IBM/InstallationManager
 log_file: /tmp/IIM_install.log
 tmp_location: /tmp/im/
-zip: Install_Mgr_v1.6.2_Lnx_WASv8.5.5.zip
+zip: agent.installer.lnx.gtk.x86_64_1.8.5.zip
 # defaults versions for WAS installation
-WASFP013: ["8.5.5-WS-WAS-FP013-part1.zip","8.5.5-WS-WAS-FP013-part2.zip","8.5.5-WS-WAS-FP013-part3.zip"]
-IBMWASJAVA: ["8.0.3.20-WS-IBMWASJAVA-part1.zip","8.0.3.20-WS-IBMWASJAVA-part2.zip"]
-WAS85: ["WAS_V8.5.5_1_OF_3.zip","WAS_V8.5.5_2_OF_3.zip","WAS_V8.5.5_3_OF_3.zip"]
+WASFP09: ["9.0.0-WS-WAS-FP009.zip"]
+IBMWASJAVA: ["was.repo.9000.java8_part1.zip","was.repo.9000.java8_part2.zip","was.repo.9000.java8_part2.zip"]
+WAS9: ["was.repo.9000.base.zip"]

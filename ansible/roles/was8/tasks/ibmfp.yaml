@@ -4,7 +4,7 @@
     url: "{{ download_FP_url }}{{ item }}"
     dest: "{{ Extract_FP_location }}"
   with_items:
-    - "{{ WASFP013 }}"
+    - "{{ WASFP09 }}"
 
 - name: "Extract fixpack archive"
   unarchive:
@@ -12,15 +12,15 @@
     dest: "{{ Extract_FP_location }}"
     copy: no
   with_items:
-    - "{{ WASFP013 }}"
+    - "{{ WASFP09 }}"
 
 - name: "Run slient install on {{installationDirectory}}"
-  command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5013.20170627_1018 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
+  command: '{{imcl_path}} install com.ibm.websphere.BASE.v90_9.0.9.20180906_1004 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
                                   
 - name: "Remove fixPacks packages"
   file: "path=\"{{Extract_FP_location}}{{item}}\" state=absent"
   with_items:
-    - "{{ WASFP013 }}"
+    - "{{ WASFP09 }}"
 
 - name: "Clean up the unarchived FP Dir"
   file: "path=\"{{Extract_FP_location}}\" state=absent"
