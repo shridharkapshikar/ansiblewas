@@ -15,7 +15,7 @@
     - "{{ WAS85 }}"
 
 - name: "Run slient install into {{installationDirectory}}"
-  command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5000.20130514_1044 -repositories {{ Extract_WAS_location }} -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
+  command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5013.20180112_1418 -repositories {{ Extract_WAS_location }} -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
   args: 
     creates: /opt/tools/IBM/WebSphere/AppServer/bin/versionInfo.sh
   
