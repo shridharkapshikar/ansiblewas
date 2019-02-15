@@ -15,11 +15,7 @@
     - "{{ WASFP09 }}"
 
 - name: "Run slient install on {{installationDirectory}}"
-<<<<<<< HEAD
   command: '{{imcl_path}} install com.ibm.websphere.BASE.v90_9.0.9.20180906_1004 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
-=======
-  command: '{{imcl_path}} install com.ibm.websphere.BASE.v85_8.5.5013.20180112_1418 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
->>>>>>> 93b103f29578fd95cf8910735f602362755b356e
                                   
 - name: "Remove fixPacks packages"
   file: "path=\"{{Extract_FP_location}}{{item}}\" state=absent"

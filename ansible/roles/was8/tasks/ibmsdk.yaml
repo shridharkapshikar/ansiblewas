@@ -16,8 +16,8 @@
     - "{{ IBMWASJAVA }}"
 
 - name: "Run silent install to {{installationDirectory}}"
-  command: '{{imcl}} install com.ibm.websphere.IBMJAVA.v80_8.0.3020.20161124_1304  -repositories "{{ Extract_JAVASDK_location }}"  -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
-  register: installSDK
+  command: '{{imcl}} install com.ibm.java.jdk.v8_8.0.3000.20160623_1418 -repositories "{{ Extract_JAVASDK_location }}"  -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
+  register: installSDK             
   changed_when: installSDK.rc != 0  
 
 - name: "Remove SDK packages after install"
