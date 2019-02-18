@@ -18,3 +18,4 @@ zip: agent.installer.lnx.gtk.x86_64_1.8.5.zip
 WASFP09: ["9.0.0-WS-WAS-FP009.zip"]
 IBMWASJAVA: ["was.repo.9000.java8_part1.zip","was.repo.9000.java8_part2.zip","was.repo.9000.java8_part2.zip"]
 WAS9: ["was.repo.9000.base.zip"]
+WAS9FPrepo: ["com.ibm.websphere.BASE.v90_9.0.9.20180906_1004"]
