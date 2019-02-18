@@ -18,7 +18,7 @@
 - name: "Run slient install into {{installationDirectory}}"
   command: '{{imcl_path}} install {{ item }} -repositories {{ Extract_WAS_location }} -installationDirectory  {{installationDirectory}} -acceptLicense -sP'
   with_items:
-  - "{{ WAS9FPrepo }}"
+  - "com.ibm.websphere.BASE.v90_9.0.9.20180906_1004"
   args:                            
     creates: /opt/tools/IBM/WebSphere/AppServer/bin/versionInfo.sh
   
