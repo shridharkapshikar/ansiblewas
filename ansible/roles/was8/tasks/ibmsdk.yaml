@@ -20,11 +20,11 @@
   register: installSDK             
   changed_when: installSDK.rc != 0  
 
-- name: "Remove SDK packages after install"
-  file: "path=\"{{Extract_JAVASDK_location}}{{item}}\" state=absent"
-  with_items:
-    - "{{ IBMWASJAVA }}"
+#- name: "Remove SDK packages after install"
+#  file: "path=\"{{Extract_JAVASDK_location}}{{item}}\" state=absent"
+#  with_items:
+#    - "{{ IBMWASJAVA }}"
 
 
-- name: "Clean up the unarchived SDK Dir"
-  file: "path=\"{{Extract_JAVASDK_location}}\" state=absent"
+#- name: "Clean up the unarchived SDK Dir"
+#  file: "path=\"{{Extract_JAVASDK_location}}\" state=absent"
