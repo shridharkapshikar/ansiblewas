@@ -38,7 +38,7 @@ pipeline {
                     inventory: 'ansible/inventory',
                     credentialsId: 'devtest',
                    // tags: "${CHOICE}",
-					extras: '-vvv')
+		     )
 			   }
             }
         }
