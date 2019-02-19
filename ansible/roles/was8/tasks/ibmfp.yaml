@@ -17,10 +17,10 @@
 - name: "Run slient install on {{installationDirectory}}"
   command: '{{imcl_path}} install com.ibm.websphere.BASE.v90_9.0.9.20180906_1004 -repositories "{{ Extract_FP_location }}" -installationDirectory "{{ installationDirectory }}" -acceptLicense -sP'
                                   
-- name: "Remove fixPacks packages"
-  file: "path=\"{{Extract_FP_location}}{{item}}\" state=absent"
-  with_items:
-    - "{{ WASFP09 }}"
+#- name: "Remove fixPacks packages"
+#  file: "path=\"{{Extract_FP_location}}{{item}}\" state=absent"
+#  with_items:
+#    - "{{ WASFP09 }}"
 
-- name: "Clean up the unarchived FP Dir"
-  file: "path=\"{{Extract_FP_location}}\" state=absent"
+#- name: "Clean up the unarchived FP Dir"
+#  file: "path=\"{{Extract_FP_location}}\" state=absent"
